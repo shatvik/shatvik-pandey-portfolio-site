@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShatvikPandey</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.jpg">
+  </head>
+  <body>
+    <header>
+      <section class="navSection" id="home">
+        <div class="logo">
+          <h1>Welcome All!</h1>
+        </div>
+        <nav>
+          <a href="#home">Home</a>
+          <a
+            href="https://www.linkedin.com/in/shatvik-pandey-74989a201"
+            target="_blank"
+            >Profile</a
+          >
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact Me</a>
+          <a href="#about">About</a>
+          <a href="login.html">LOGIN</a>
+        </nav>
+      </section>
+      <main>
+        <div class="LeftSide">
+          <h3>Hello</h3>
+          <h1>I Am SHATVIK PANDEY</h1>
+          <h2>Pursuing Web Development</h2>
+          <a href="#projects" id="#projects" class="btn1">View</a>
+          <a href="login.html" class="btn2">Sign-Up</a>
+        </div>
+        <div class="RightSide">
+          <img
+            src="https://media.istockphoto.com/vectors/isometric-illustration-with-a-laptop-men-and-women-working-on-web-vector-id1096969570?b=1&k=6&m=1096969570&s=612x612&w=0&h=NfXih7q1XPUZ3Q2kQjF7w8Z41FKnntxODF8J1A6Dd5I="
+            alt="image"
+          />
+        </div>
+      </main>
+    </header>
+    <hr />
+    <div class="contaner">
+      <div class="projectname">
+        <h1>The Projects Are:</h1>
+      </div>
+
+      <div class="projectitem" id="projects">
+        <button onclick="myFunction()">Project1</button>
+        <button onclick="myFunction2()">Project2</button>
+        <button onclick="myFunction3()">Project3</button>
+      </div>
+
+      <div class="projectimg">
+        <img id="cal" src="calculator.jpg" alt="calculator" />
+        <div class="linee"></div>
+        <img src="music.jpg" alt="music player" />
+        <div class="linee"></div>
+        <img src="clock.jpg" alt="clock" />
+      </div>
+      <div class="namee">
+        <h3>calculator</h3>
+        <h3>music-player</h3>
+        <h3>clock</h3>
+      </div>
+    </div>
+    <hr />
+    <div class="contact" id="contact">
+      <h3>Contact Form</h3>
+
+      <div class="containner">
+        <form action="#">
+          <label for="fname">First Name</label>
+          <input
+            type="text"
+            id="fname"
+            name="firstname"
+            placeholder="Your name.."
+          />
+
+          <label for="lname">Last Name</label>
+          <input
+            type="text"
+            id="lname"
+            name="lastname"
+            placeholder="Your last name.."
+          />
+
+          <label for="email-id">E-mail Id</label>
+          <input
+            type="text"
+            id="email-id"
+            name="email-id"
+            placeholder="Your E-mail Id.."
+          />
+
+          <label for="subject">Subject</label>
+          <textarea
+            id="subject"
+            name="subject"
+            placeholder="Write something.."
+            style="height: 200px"
+          ></textarea>
+
+          <input type="submit" value="Submit" id="submit"/>
+        </form>
+      </div>
+    </div>
+    <hr />
+    <div class="about" id="about">
+      <h2 class="hh">About Me</h2>
+      <div class="par">
+        <p>
+          Hello There!, My name is Shatvik Pandey as you might know , I am a 3rd year
+          B-Tech Computer science student , which i am pursuing from Lovely
+          Professional University. I am very passionate about Web Development.<br />
+          <br />
+          <p>Recently I am learning and working on latest technologies and I assure you that i will make a Superb functioning 
+            Full stack Project in just 30 days... <strong> fingers crossed :) </strong>
+          </p>
+        </p>
+      </div>
+    </div>
+    <div class="active-popup"></div>
+  </body>
+  <script>
+    // cal = document.getElementById("cal");
+    var submitbtn = document.getElementById("submit");
+    var active = document.querySelector(".active-popup");
+    var extradiv = document.querySelector(".active-popup");
+    var close = document.querySelector("#close");
+    submitbtn.addEventListener("click",enableToggle);
+    function enableToggle(e){
+      e.preventDefault();
+      // document.body.style.opacity=0.3;
+      extradiv.style.display="block";
+      extradiv.innerHTML = "<pre>"+"Still Under Construction! :( "+'\n'+"I am Extremely sorry.."+"<button id='close'>Close</button>"+"</pre>";
+      var close = document.querySelector("#close");
+      close.addEventListener("click",()=>{
+        console.log("hello")
+        if(extradiv.style.display == "block")
+        {
+          extradiv.style.display="none";
+        }else{
+          extradiv.style.display="block";
+        }
+      })
+    }
+    function myFunction() {
+      location.replace("cal.html");
+    }
+    function myFunction2() {
+      location.replace("music.html");
+    }
+    function myFunction3() {
+      location.replace("clock.html");
+    }
+  </script>
+</html>

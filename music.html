@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="music.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.jpg" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="main-div">
+      <div class="music-container">
+        <h2 id="title">Song Name</h2>
+        <h3 id="artist">Song artist</h3>
+        <div class="img-container">
+          <img src="mus.jpg" alt="img of Song" />
+        </div>
+        <audio src="music/onandon.mp3"></audio>
+
+        <!-- controls -->
+        <div class="music-controls">
+          <i class="fas fa-backward" id="prev" title="prev"></i>
+          <i class="fas fa-play main-button" id="play" title="play"></i>
+          <i class="fas fa-forward" id="next" title="next"></i>
+        </div>
+        <script>
+          const music = document.querySelector("audio");
+          const play = document.getElementById("play");
+          const artist = document.getElementById("artist");
+          const title = document.getElementById("title");
+          const prev = document.getElementById("prev");
+          const next = document.getElementById("next");
+
+          const songs = [
+            {
+              name: "onandon",
+              title: "on & on",
+              artist: "alan-walker",
+            },
+            {
+              name: "everyday",
+              title: "That's my way",
+              artist: "morillo makers",
+            },
+            //You can Add Much More Songs in this array Just "include the correct song name" that's it :)
+          ];
+
+          let isPlaying = false;
+          const playMusic = () => {
+            isPlaying = true;
+            music.play();
+            play.classList.replace("fa-play", "fa-pause");
+          };
+          // for pause function
+          const pauseMusic = () => {
+            isPlaying = false;
+            music.pause();
+            play.classList.replace("fa-pause", "fa-play");
+          };
+
+          play.addEventListener("click", () => {
+            if (isPlaying) {
+              pauseMusic();
+            } else {
+              playMusic();
+            }
+          });
+          //changing music and all details
+
+          const loadSong = (songs) => {
+            title.textContent = songs.title;
+            artist.textContent = songs.artist;
+            music.src = "music/" + songs.name + ".mp3";
+          };
+          songIndex = 0;
+
+          const nextSong = () => {
+            songIndex = (songIndex + 1) % songs.length;
+            loadSong(songs[songIndex]);
+            playMusic();
+          };
+
+          const prevSong = () => {
+            songIndex = (songIndex - 1 + songs.length) % songs.length;
+            loadSong(songs[songIndex]);
+            playMusic();
+          };
+          next.addEventListener("click", nextSong);
+          prev.addEventListener("click", prevSong);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
